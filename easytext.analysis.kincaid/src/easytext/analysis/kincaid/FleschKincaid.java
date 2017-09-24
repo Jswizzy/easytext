@@ -1,15 +1,25 @@
-package easytext.analysis;
+package easytext.analysis.kincaid;
+
+import easytext.analysis.api.Analyzer;
 
 import java.util.List;
 
-public class FleschKincaid {
+public class FleschKincaid  implements Analyzer {
 
+    public static final String NAME = "Flesch-Kincaid";
+
+    @Override
+    public String getName() {
+        return NAME;
+    }
+
+    @Override
     public double analyze(List<List<String>> sentences) {
         float totalsentences = sentences.size();
-        float totalwords = sentences.stream().mapToInt(List::size).sum();
+        float totalwords = sentences.stream().mapToInt(sentence -> sentence.size()).sum();
         float totalsyllables = sentences.stream()
                 .flatMapToInt(sentence ->
-                        sentence.stream().mapToInt(this::countSyllables))
+                        sentence.stream().mapToInt(word -> countSyllables(word)))
                 .sum();
         return 206.835 - 1.015 * (totalwords / totalsentences) - 84.6 * (totalsyllables / totalwords);
     }

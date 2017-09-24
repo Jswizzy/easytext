@@ -7,8 +7,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="easytext.analysis.kincaid" />
     <orderEntry type="module" module-name="easytext.analysis.api" />
-    <orderEntry type="module" module-name="easytext.analysis.coleman" />
   </component>
 </module>

@@ -1,6 +1,6 @@
 package easytext.gui;
 
-import easytext.analysis.FleschKincaid;
+import easytext.analysis.api.Analyzer;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -12,17 +12,17 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Main extends Application {
 
     private static ComboBox<String> algorithm;
     private static TextArea input;
     private static Text output;
+    private final Map<String, Analyzer> analyzers = new HashMap<>();
 
     public static void main(String[] args) {
-        Application.launch(args);
+        launch(args);
     }
 
     @Override
@@ -31,7 +31,7 @@ public class Main extends Application {
         Button btn = new Button();
         btn.setText("Calculate");
         btn.setOnAction(event ->
-                output.setText(analyze(input.getText(), (String) algorithm.getValue()))
+                output.setText(analyze(input.getText(), algorithm.getValue()))
         );
 
         VBox vbox = new VBox();
@@ -39,7 +39,14 @@ public class Main extends Application {
         vbox.setSpacing(3);
         Text title = new Text("Choose an algorithm:");
         algorithm = new ComboBox<>();
-        algorithm.getItems().add("Flesch-Kincaid");
+
+        Iterable<Analyzer> analyzerServices = ServiceLoader.load(Analyzer.class);
+
+        for(Analyzer analyzer: analyzerServices) {
+            analyzers.put(analyzer.getName(), analyzer);
+            algorithm.getItems().add(analyzer.getName());
+            System.out.println(analyzer.getName());
+        }
 
         vbox.getChildren().add(title);
         vbox.getChildren().add(algorithm);
@@ -58,7 +65,7 @@ public class Main extends Application {
     private String analyze(String input, String algorithm) {
         List<List<String>> sentences = toSentences(input);
 
-        return "Flesch-Kincaid: " + new FleschKincaid().analyze(sentences);
+        return algorithm + ": " + analyzers.get(algorithm).analyze(sentences);
     }
 
 

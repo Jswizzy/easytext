@@ -1,5 +1,7 @@
 package easytext.cli;
 
+import easytext.analysis.api.Analyzer;
+
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
@@ -7,8 +9,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-
-import easytext.analysis.FleschKincaid;
+import java.util.ServiceLoader;
 
 public class Main {
 
@@ -24,10 +25,13 @@ public class Main {
 
         List<List<String>> sentences = toSentences(text);
 
-        System.out.println("Flesch-Kincaid: " + new FleschKincaid().analyze(sentences));
 
+        Iterable<Analyzer> analyzers = ServiceLoader.load(Analyzer.class);
+
+        for (Analyzer analyzer: analyzers) {
+            System.out.println(analyzer.getName() + ": " + analyzer.analyze(sentences));
+        }
     }
-
 
     public static List<List<String>> toSentences(String text) {
         String removedBreaks = text.replaceAll("\\r?\\n", " ");
