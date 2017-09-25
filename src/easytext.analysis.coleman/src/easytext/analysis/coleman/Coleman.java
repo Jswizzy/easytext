@@ -1,9 +1,11 @@
 package easytext.analysis.coleman;
 
 import easytext.analysis.api.Analyzer;
+import easytext.analysis.api.Fast;
 
 import java.util.List;
 
+@Fast
 public class Coleman implements Analyzer {
 
     public static final String NAME = "Coleman-Liau";

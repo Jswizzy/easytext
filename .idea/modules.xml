@@ -3,11 +3,12 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/easytext.iml" filepath="$PROJECT_DIR$/easytext.iml" />
-      <module fileurl="file://$PROJECT_DIR$/easytext.analysis.api/easytext.analysis.api.iml" filepath="$PROJECT_DIR$/easytext.analysis.api/easytext.analysis.api.iml" />
-      <module fileurl="file://$PROJECT_DIR$/easytext.analysis.coleman/easytext.analysis.coleman.iml" filepath="$PROJECT_DIR$/easytext.analysis.coleman/easytext.analysis.coleman.iml" />
-      <module fileurl="file://$PROJECT_DIR$/easytext.analysis.kincaid/easytext.analysis.kincaid.iml" filepath="$PROJECT_DIR$/easytext.analysis.kincaid/easytext.analysis.kincaid.iml" />
-      <module fileurl="file://$PROJECT_DIR$/easytext.cli/easytext.cli.iml" filepath="$PROJECT_DIR$/easytext.cli/easytext.cli.iml" />
-      <module fileurl="file://$PROJECT_DIR$/easytext.gui/easytext.gui.iml" filepath="$PROJECT_DIR$/easytext.gui/easytext.gui.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/easytext.analysis.api/easytext.analysis.api.iml" filepath="$PROJECT_DIR$/src/easytext.analysis.api/easytext.analysis.api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/easytext.analysis.coleman/easytext.analysis.coleman.iml" filepath="$PROJECT_DIR$/src/easytext.analysis.coleman/easytext.analysis.coleman.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/easytext.analysis.kincaid/easytext.analysis.kincaid.iml" filepath="$PROJECT_DIR$/src/easytext.analysis.kincaid/easytext.analysis.kincaid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/easytext.cli/easytext.cli.iml" filepath="$PROJECT_DIR$/src/easytext.cli/easytext.cli.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/easytext.filtering/easytext.filtering.iml" filepath="$PROJECT_DIR$/src/easytext.filtering/easytext.filtering.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/easytext.gui/easytext.gui.iml" filepath="$PROJECT_DIR$/src/easytext.gui/easytext.gui.iml" />
     </modules>
   </component>
 </project>
